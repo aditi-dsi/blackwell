@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    background-image: url('./assets/bw.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (max-width: 640px) {
+    body {
+        background-image: url('./assets/bw-mobile.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+/* Handle active nav items of navbar */
+.active{
+    color: #fff;
+}
+
+@media(max-width: 760px){
+    .active{
+        background-color:  rgba(168, 168, 168, 0.347);
+    }
+}
+
+/* Handle UI of active tabs from Tabbed Navigation of [STAKE, WITHDRAW] */
+.activeTab{
+    color:rgb(236 72 153) ;
+    border: 3px solid rgb(236 72 153);
+    border-radius: 50px;
+    background-color:#23272f ;
+}
+
+  
