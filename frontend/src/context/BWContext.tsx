@@ -15,11 +15,15 @@ interface BWContextType {
 
 // Define default values of cotnext variables
 const BWContextDefault:BWContextType = {
-    stakerContract: stakerAbi , 
-    stakeTokenContract: stakeTokenAbi,
+    stakerContract: abstract class stakerContract {
+} , 
+    stakeTokenContract: abstract class stakeTokenContract {
+} ,
     selectedAccount: "",
     chainId: 0,
-    provider:ethers.BrowserProvider
+    provider: class provider{
+        
+    }
 }
 
 // Create context
