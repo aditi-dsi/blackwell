@@ -6,24 +6,20 @@ import stakeTokenAbi from "./ABI/stakeTokenAbi.json";
 
 // Define interface for variables circulated as context
 interface BWContextType {
-    stakerContract: Contract; 
-    stakeTokenContract: Contract;
+    stakerContract: Contract | null; 
+    stakeTokenContract: Contract | null;
     selectedAccount: string;
     chainId: number;
-    provider:ethers.BrowserProvider;
+    provider:ethers.BrowserProvider | null;
   }
 
 // Define default values of cotnext variables
 const BWContextDefault:BWContextType = {
-    stakerContract: abstract class stakerContract {
-} , 
-    stakeTokenContract: abstract class stakeTokenContract {
-} ,
+    stakerContract: null , 
+    stakeTokenContract: null ,
     selectedAccount: "",
     chainId: 0,
-    provider: class provider{
-        
-    }
+    provider:null
 }
 
 // Create context
