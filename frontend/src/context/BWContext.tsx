@@ -4,20 +4,20 @@ import { createContext } from "react";
 
 // Define interface for variables circulated as context
 interface BWContextType {
-    stakerContract: Contract | undefined ; 
-    stakeTokenContract: Contract | undefined;
-    selectedAccount: string | "";
-    chainId: number | 0;
-    provider:ethers.BrowserProvider | undefined;
+    stakerContract: Contract; 
+    stakeTokenContract: Contract;
+    selectedAccount: string;
+    chainId: number;
+    provider:ethers.BrowserProvider;
   }
 
 // Define default values of cotnext variables
 const BWContextDefault:BWContextType = {
-    stakerContract: undefined , 
-    stakeTokenContract: undefined,
+    stakerContract: {} , 
+    stakeTokenContract: {},
     selectedAccount: "",
     chainId: 0,
-    provider:ethers.BrowserProvider
+    provider:{}
 }
 
 // Create context
