@@ -9,10 +9,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 // Define interface for state variables of wallet
 interface WalletState {
-    provider:ethers.BrowserProvider | undefined;
-    selectedAccount: string | "";
-    stakerContract: Contract | undefined ; 
-    stakeTokenContract: Contract | undefined;
+    provider:ethers.BrowserProvider;
+    selectedAccount: string;
+    stakerContract: Contract ; 
+    stakeTokenContract: Contract;
     chainId: number | 0;
 }
 
@@ -23,10 +23,10 @@ interface WalletProps {
 
 const Wallet: React.FC<WalletProps> = ({ children }) => {
   const [state, setState] = useState<WalletState>({
-    provider: undefined,
+    provider: {},
     selectedAccount: "",
-    stakerContract: undefined,
-    stakeTokenContract: undefined,
+    stakerContract: {},
+    stakeTokenContract: {},
     chainId: 0,
   });
 
