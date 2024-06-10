@@ -13,11 +13,11 @@ interface BWContextType {
 
 // Define default values of cotnext variables
 const BWContextDefault:BWContextType = {
-    stakerContract: undefined ; 
-    stakeTokenContract: undefined;
-    selectedAccount: "";
-    chainId: 0;
-    provider:ethers.BrowserProvider;
+    stakerContract: undefined , 
+    stakeTokenContract: undefined,
+    selectedAccount: "",
+    chainId: 0,
+    provider:ethers.BrowserProvider
 }
 
 // Create context
