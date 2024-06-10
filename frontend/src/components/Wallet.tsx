@@ -9,11 +9,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 // Define interface for state variables of wallet
 interface WalletState {
-  provider: any | null;
-  selectedAccount: string | null;
-  stakerContract: Contract | null;
-  stakeTokenContract: Contract | null;
-  chainId: number | null;
+    stakerContract: Contract ; 
+    stakeTokenContract: Contract;
+    selectedAccount: string;
+    chainId: number;
+    provider:ethers.BrowserProvider;
 }
 
 // Define interface for wallet props, children: generally any element that would need wallet state variables (via BWContext) to achieve a task
