@@ -9,10 +9,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 // Define interface for state variables of wallet
 interface WalletState {
-    provider:ethers.BrowserProvider;
+    provider:ethers.BrowserProvider | null;
     selectedAccount: string;
-    stakerContract: Contract ; 
-    stakeTokenContract: Contract;
+    stakerContract: Contract | null; 
+    stakeTokenContract: Contract | null;
     chainId: number;
 }
 
@@ -23,16 +23,10 @@ interface WalletProps {
 
 const Wallet: React.FC<WalletProps> = ({ children }) => {
   const [state, setState] = useState<WalletState>({
-    provider: class provider {
-  // This class is intentionally empty
-},
+    provider:null,
     selectedAccount: "",
-    stakerContract: abstract class stakerContract {
-    // You can define abstract methods here
-},
-    stakeTokenContract: abstract class stakeTokenContract {
-    // You can define abstract methods here
-},
+    stakerContract: null,
+    stakeTokenContract: null,
     chainId: 0,
   });
 
