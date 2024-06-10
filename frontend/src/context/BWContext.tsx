@@ -1,4 +1,3 @@
-import { Contract, ethers } from "ethers";
 import { createContext } from "react";
 
 
