@@ -11,6 +11,6 @@ interface BWContextType {
   }
 
 // Create context
-const BWContext = createContext<BWContextType>();
+const BWContext = createContext<BWContextType>('');
 
 export default BWContext;
