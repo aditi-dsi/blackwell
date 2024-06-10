@@ -3,17 +3,17 @@ import { connectWallet } from "../utils/connectWallet";
 import BWContext from "../context/BWContext";
 import { accountHandler } from "../utils/accountHandler";
 import { chainHandler } from "../utils/chainHandler";
-import { Contract } from "ethers";
+import { Contract, ethers } from "ethers";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Define interface for state variables of wallet
 interface WalletState {
-    stakerContract: Contract ; 
-    stakeTokenContract: Contract;
-    selectedAccount: string;
-    chainId: number;
-    provider:ethers.BrowserProvider;
+    provider:ethers.BrowserProvider | undefined;
+    selectedAccount: string | "";
+    stakerContract: Contract | undefined ; 
+    stakeTokenContract: Contract | undefined;
+    chainId: number | 0;
 }
 
 // Define interface for wallet props, children: generally any element that would need wallet state variables (via BWContext) to achieve a task
@@ -23,11 +23,11 @@ interface WalletProps {
 
 const Wallet: React.FC<WalletProps> = ({ children }) => {
   const [state, setState] = useState<WalletState>({
-    provider: null,
-    selectedAccount: null,
-    stakerContract: null,
-    stakeTokenContract: null,
-    chainId: null,
+    provider: undefined,
+    selectedAccount: "",
+    stakerContract: undefined,
+    stakeTokenContract: undefined,
+    chainId: 0,
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
