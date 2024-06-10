@@ -21,6 +21,6 @@ import { createContext } from "react";
 // }
 
 // Create context
-const BWContext = createContext({});
+const BWContext = createContext();
 
 export default BWContext;
