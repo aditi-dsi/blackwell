@@ -3,7 +3,6 @@ import { connectWallet } from "../utils/connectWallet";
 import BWContext from "../context/BWContext";
 import { accountHandler } from "../utils/accountHandler";
 import { chainHandler } from "../utils/chainHandler";
-import { Contract, ethers } from "ethers";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
