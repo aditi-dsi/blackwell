@@ -9,7 +9,7 @@ const ClaimReward: React.FC = () => {
 
   const claimReward = async () => {
     try {
-      const transaction = await stakerContract?.claimReward();
+      const transaction = await stakerContract.claimReward();
 
       // Wait for transaction..
       toast.warn("Transaction is pending...")
