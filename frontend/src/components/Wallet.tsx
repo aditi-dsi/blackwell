@@ -13,7 +13,7 @@ interface WalletState {
     selectedAccount: string;
     stakerContract: Contract ; 
     stakeTokenContract: Contract;
-    chainId: number | 0;
+    chainId: number;
 }
 
 // Define interface for wallet props, children: generally any element that would need wallet state variables (via BWContext) to achieve a task
@@ -23,10 +23,16 @@ interface WalletProps {
 
 const Wallet: React.FC<WalletProps> = ({ children }) => {
   const [state, setState] = useState<WalletState>({
-    provider: {},
+    provider: class provider {
+  // This class is intentionally empty
+},
     selectedAccount: "",
-    stakerContract: {},
-    stakeTokenContract: {},
+    stakerContract: abstract class stakerContract {
+    // You can define abstract methods here
+},
+    stakeTokenContract: abstract class stakeTokenContract {
+    // You can define abstract methods here
+},
     chainId: 0,
   });
 
