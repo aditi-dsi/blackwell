@@ -22,7 +22,7 @@ const CreditScoreLogic: React.FC = () => {
     e.preventDefault();
     
     try {
-      const transaction = await stakerContract.useRewards();
+      const transaction = await stakerContract?.useRewards();
       toast.warn("Transaction is pending..");
       const receipt = await transaction.wait();
       if (receipt.status === 1) {
