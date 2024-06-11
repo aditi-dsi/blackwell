@@ -22,4 +22,4 @@ Supported Devices: Desktop
 Contributions are always welcome!. You may contribute to Blackwell in the form of feedback and suggestions..🤍.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+This project is licensed under the MIT License. See LICENSE.txt for more details.
