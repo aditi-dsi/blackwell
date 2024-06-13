@@ -2,6 +2,7 @@ import React from "react";
 import Wallet from "../Wallet";
 import Navbar from "../Navigation/Navbar";
 import { StakerProvider } from "../../context/StakerContext";
+import TokenRequestHandler from "../StakeToken/TokenRequestHandler";
 
 // Blackwell - Navigation = '/' & '/home', BlackWell, Home
 
@@ -13,17 +14,25 @@ const Home: React.FC = () => {
           <Navbar />
           <StakerProvider>
             <h1 className="text-white text-2xl md:text-6xl lg:text-7xl text-left font-semibold flex-wrap w-full md:w-8/12 my-4 sm:my-5 md:my-10 px-4 sm:px-8 md:px-14">
-            Supercharging the reward game with AI
+              Supercharging the reward game with AI
             </h1>
 
             {/* Features of BW */}
             <ul className="text-left text-sm sm:text-sm mb-6 sm:mb-5 md:mb-6 px-4 sm:px-8 md:px-14 space-y-6">
               <li>&#10003; Stake tokens in BLK, Earn Rewards in bUSD</li>
               <li>&#10003; Withdraw Anytime & claim rewards</li>
-              <li>&#10003; Use rewards to unlock exclusive crypto credit score feature</li>
-              <li>&#10003; Generate personalized credit report with BlackWell AI</li>
+              <li>
+                &#10003; Use rewards to unlock exclusive crypto credit score
+                feature
+              </li>
+              <li>
+                &#10003; Generate personalized credit report with BlackWell AI
+              </li>
             </ul>
           </StakerProvider>
+
+          {/* To handle BLK tokens request before stake*/}
+          <TokenRequestHandler />
         </Wallet>
       </div>
     </>
