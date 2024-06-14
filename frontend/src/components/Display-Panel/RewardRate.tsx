@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import BWContext from "../../context/BWContext";
 import { ethers } from "ethers";
-import { toast } from "react-toastify";
 
 const RewardRate: React.FC = () => {
   const { stakerContract, selectedAccount } = useContext(BWContext);
@@ -18,7 +17,7 @@ const RewardRate: React.FC = () => {
         );
         setRewardRate(Number(rewardRateEth));
       } catch (error: any) {
-        toast.error(`Error fetching reward rate - ${error.message}`);
+        console.error(`Error fetching reward rate - ${error.message}`);
       }
     };
     stakerContract && fetchRewardRate();

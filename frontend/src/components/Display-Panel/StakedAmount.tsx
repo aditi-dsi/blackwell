@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react"
 import BWContext from "../../context/BWContext"
 import { ethers } from "ethers";
 import StakerContext from "../../context/StakerContext";
-import { toast } from "react-toastify";
 
 const StakedAmount : React.FC = () => {
   const {stakerContract, selectedAccount} = useContext(BWContext);
@@ -17,7 +16,7 @@ const StakedAmount : React.FC = () => {
         const amountStakedEth :string = ethers.formatUnits(amountStakedWei.toString(), 18)
         setStakedAmount(amountStakedEth);
       } catch (error:any) {
-        toast.error(`Error fetching staked balance - ${error.message}`)
+        console.error(`Error fetching staked balance - ${error.message}`)
       }
     }
     stakerContract && fetchStakedAmount()

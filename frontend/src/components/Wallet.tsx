@@ -32,8 +32,41 @@ const Wallet: React.FC<WalletProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    // Handle accounts and chain changes
+    // Reconnect wallet on page reload
+    const connectWalletOnPageLoad = async () => {
+      if (localStorage?.getItem('isWalletConnected') === 'true') {
+          try {
+            // setIsLoading(true);
+      
+            const {
+              provider,
+              selectedAccount,
+              stakerContract,
+              stakeTokenContract,
+              chainId,
+            } = await connectWallet();
 
+            setState({
+              provider,
+              selectedAccount,
+              stakerContract,
+              stakeTokenContract,
+              chainId,
+            });
+            } catch (error:any) {
+              toast.error(`Error Occurred - ${error.message}`)
+              }
+              }
+              
+              // Disconnect wallet after 15 mins of inactivity
+                setTimeout(() => {
+                  localStorage.removeItem('isWalletConnected')
+                }, 900000);
+      }
+    
+    connectWalletOnPageLoad()
+
+    // Handle accounts and chain changes
     window.ethereum.on("accountsChanged", () => accountHandler(setState));
     window.ethereum.on("chainChanged", () => chainHandler(setState));
 
@@ -45,13 +78,12 @@ const Wallet: React.FC<WalletProps> = ({ children }) => {
         chainHandler(setState)
       );
     };
-  });
+  }, []);
 
   const handleWallet = async () => {
     try {
       setIsLoading(true);
 
-      // Desctructure state variables after wallet connection
       const {
         provider,
         selectedAccount,
@@ -67,6 +99,7 @@ const Wallet: React.FC<WalletProps> = ({ children }) => {
         stakeTokenContract,
         chainId,
       });
+      localStorage.setItem('isWalletConnected', 'true')
       toast.success("Connection Successfull !")
     } catch (error: any) {
       toast.error(`Error Occurred - ${error.message}`)

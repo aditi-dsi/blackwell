@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import BWContext from "../../context/BWContext";
 import { ethers } from "ethers";
-import { toast } from "react-toastify";
 
 const EarnedReward: React.FC = () => {
   const { stakerContract, selectedAccount } = useContext(BWContext);
@@ -16,11 +15,17 @@ const EarnedReward: React.FC = () => {
         const roundedReward:string = parseFloat(earnedRewardEth).toFixed(2);
         setEarnedReward(roundedReward);
       } catch (error: any) {
-        toast.error(`Error in fetching earned rewards - ${error.message}`);
+        console.error(`Error in fetching earned rewards - ${error.message}`);
       }
     };
 
     stakerContract && fetchEarnedReward() ;
+
+    // Set interval to fetch rewards every half a minute
+    const interval = setInterval(fetchEarnedReward, 30000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
 
   }, [stakerContract, selectedAccount]);
 
