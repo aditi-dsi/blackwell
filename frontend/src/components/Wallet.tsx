@@ -60,7 +60,7 @@ const Wallet: React.FC<WalletProps> = ({ children }) => {
               
               // Disconnect wallet after 15 mins of inactivity
                 setTimeout(() => {
-                  localStorage.removeItem('isWalletConnected')
+                  localStorage.setItem('isWalletConnected', 'false')
                 }, 900000);
       }
     
